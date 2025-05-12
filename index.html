@@ -1,206 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Class Schedule Calendar</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f0f4f8;
-      padding: 40px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .header-text {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .header-text h2 {
-      margin: 0;
-      font-size: 24px;
-      color: #333;
-    }
-
-    .header-text p {
-      margin: 4px 0 0;
-      font-size: 15px;
-      color: #555;
-    }
-
-    .layout {
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-    }
-
-    .left-column {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .session-button {
-      background-color: #28a745;
-      color: white;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 6px;
-      font-size: 14px;
-      cursor: pointer;
-    }
-
-    .session-button:hover {
-      background-color: #218838;
-    }
-
-    .calendar-container {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-      width: 360px;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .calendar-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    .calendar-header button {
-      background-color: #007bff;
-      color: white;
-      border: none;
-      padding: 6px 10px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .calendar-header button:hover {
-      background-color: #0056b3;
-    }
-
-    .month-year {
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    th, td {
-      width: 14.28%;
-      height: 40px;
-      text-align: center;
-      border-radius: 6px;
-    }
-
-    th {
-      color: #666;
-    }
-
-    td {
-      background-color: #f9f9f9;
-    }
-
-    td:hover {
-      background-color: #e0f0ff;
-      cursor: pointer;
-    }
-
-    .today {
-      background-color: #d1ecf1 !important;
-      color: #0c5460;
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Top title + description -->
-  <div class="header-text">
-    <h2>Class Schedule</h2>
-    <p>Summer One, 6 Week Session, June 1st – July 10th</p>
-  </div>
-
-  <!-- Layout: Left (button), Right (calendar) -->
-  <div class="layout">
-    <!-- Left column -->
-    <div class="left-column">
-      <button class="session-button">Session Classes</button>
-    </div>
-
-    <!-- Calendar -->
-    <div class="calendar-container">
-      <div class="calendar-header">
-        <button onclick="changeMonth(-1)">←</button>
-        <div class="month-year" id="monthYear"></div>
-        <button onclick="changeMonth(1)">→</button>
-      </div>
-      <table id="calendar"></table>
-    </div>
-  </div>
-
-  <script>
-    const monthYear = document.getElementById('monthYear');
-    const calendar = document.getElementById('calendar');
-    let currentDate = new Date();
-
-    function renderCalendar() {
-      const year = currentDate.getFullYear();
-      const month = currentDate.getMonth();
-      const today = new Date();
-
-      const firstDay = new Date(year, month, 1).getDay();
-      const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-      const monthNames = [
-        'January', 'February', 'March', 'April', 'May', 'June',
-        'July', 'August', 'September', 'October', 'November', 'December'
-      ];
-
-      monthYear.textContent = `${monthNames[month]} ${year}`;
-
-      let html = '<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th>' +
-                 '<th>Thu</th><th>Fri</th><th>Sat</th></tr><tr>';
-
-      for (let i = 0; i < firstDay; i++) {
-        html += '<td></td>';
-      }
-
-      for (let day = 1; day <= daysInMonth; day++) {
-        const isToday =
-          today.getDate() === day &&
-          today.getMonth() === month &&
-          today.getFullYear() === year;
-
-        html += `<td${isToday ? ' class="today"' : ''}>${day}</td>`;
-
-        if ((firstDay + day) % 7 === 0) {
-          html += '</tr><tr>';
-        }
-      }
-
-      html += '</tr>';
-      calendar.innerHTML = html;
-    }
-
-    function changeMonth(offset) {
-      currentDate.setMonth(currentDate.getMonth() + offset);
-      renderCalendar();
-    }
-
-    renderCalendar();
-  </script>
-
-</body>
-</html>
+  <h1>Class Project Proposal</h1>
+    <h2>Team Members:</h2>
+      <p>Just me!</p>
+    <h2>Application Overview:</h2>
+      <p>Students and parents are able to view the session available for 
+        sign-ups, what classes, times, and price amount. Able to book with button that takes you
+        to Facebook messenger (our main booking way as of now).</p>
+    <h2>Technology Overview:</h2>
+      <p>I used Javacript for the engaging features and CSS to make it all look appealing.</p>
+    <h2>Proposal Last Updated:</h2>
+      <p>5/12/2025</p>
+    <h2>Feature List:</h2>
+      <p>Colorful and appealing CSS, help button, description button, drop-down buttons for info.,
+         advanced "last updated" section, monthly and weekly looks into schedule.</p>
+    <h2>Future Featere List</h2>
+      <p>Dark mode, private lesson time slots, slots to reserve a spot for pre-registered kids with
+         name and ID number.</p>
+    <h2>Basic Technical Features:</h2>
+      <p>CSS using the style tags to make the website look good to the eye.</p>
+      <p>Using the toggle JavaScript to show and hide the price of each class.</p>
+      <p>Using the div tag to put words and stuff exactly where I want them.</p>
+      <p>The if/else statements check which section the user wants to view and display the 
+        appropriate content.</p>
+      <p>Using the href to take the user to the place quicker for booking.</p>
+    <h2>Advanced Technical Features:</h2>
+      <p>I got my "Book Now" buttons to pulse in order to pursuade more people to sign up.</p>
+      <p>My "last updated" at the bottom auto-updates itself.</p>
+      <p>Using a little bit more upgraded meta, my website will adjust better to different 
+        sized electronics.</p>
